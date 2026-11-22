@@ -74,7 +74,7 @@ export default function ForecastPage() {
           <div style={{ height: 190 }} dir="ltr">
             {f && (
               <ResponsiveContainer>
-                <LineChart data={f.city_daily} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
+                <LineChart data={f.city_daily} margin={{ top: 8, right: 28, left: -12, bottom: 0 }}>
                   <CartesianGrid stroke="var(--line)" vertical={false} />
                   <XAxis dataKey="label_ar" tick={{ fill: 'var(--ink-muted)', fontSize: 12 }} interval={1} stroke="var(--line-strong)" />
                   <YAxis tick={{ fill: 'var(--ink-muted)', fontSize: 12 }} stroke="var(--line-strong)" domain={['dataMin - 0.5', 'dataMax + 0.5']} tickFormatter={(v) => Number(v).toFixed(1)} />

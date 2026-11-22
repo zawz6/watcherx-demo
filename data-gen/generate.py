@@ -573,7 +573,7 @@ def main():
                    "change_pct": int(round(change[i])),
                    "trend": "rising" if change[i] >= 10 else "falling" if change[i] <= -10 else "flat",
                    "reasons_ar": reasons_for(i, rates, fac, ctx, dates7[0], "night")})
-    rising = sorted(z7, key=lambda z: -z["change_pct"])[:5]
+    rising = sorted([z for z in z7 if z["level"] >= 3 and z["change_pct"] > 0], key=lambda z: -z["change_pct"])[:5]  # medium risk or above
     dump("forecast_7d.json", {"generated_at": NOW.isoformat(), "steps": steps, "zones": z7, "city_daily": daily_expected,
                               "rising_top5": [{"id": z["id"], "change_pct": z["change_pct"]} for z in rising]})
 
