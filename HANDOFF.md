@@ -1,12 +1,12 @@
 # WatcherX demo: hand-off
 
-Clickable Arabic (RTL) demo of WatcherX for the Second Industrial City, Riyadh. **Tier 1**: every number comes from simple rules on synthetic data, not from trained models. Repo: `zawz6/watcherx-demo` (private).
+Clickable Arabic (RTL) demo of WatcherX for the Second Industrial City, Riyadh. **Tier 1**: every number comes from simple rules on synthetic data, not from trained models. Repo: `zawz6/watcherx-demo` (private). **Live demo: https://watcherx-demo.vercel.app** (Vercel, static export; the basemap needs internet).
 
 ## Run it
 
 ```bash
-cd web && pnpm install && pnpm dev          # http://localhost:3000
-pnpm build && npx serve out -l 3100          # production build (static export), used for screenshots
+cd web && npm install && npm run dev          # http://localhost:3000
+npm run build && npx serve out -l 3100          # production build (static export), used for screenshots
 BASE=http://localhost:3100 node scripts/screenshots.mjs   # writes ../shots/ss01..ss10 (1920x1080)
 BASE=http://localhost:3100 node scripts/flow-test.mjs     # 15 interaction checks
 cd ../data-gen && uv run python generate.py  # regenerates web/public/data/*.json (seed 42, about 2 s)
