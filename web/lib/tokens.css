@@ -1,0 +1,132 @@
+/* WatcherX — generated from tokens.json */
+:root, [data-theme="night"] {
+  --bg: #0b1426; /* Page and slide background. The default ground for everything. */
+  --bg-deep: #070d1a; /* Deepest ground: map basemap, cover slide, full-bleed hero areas. */
+  --surface: #111d35; /* Cards, panels, sidebars, modals. Sits on bg. */
+  --surface-raised: #1a2948; /* Hover, selected rows, inputs, chips. Sits on surface. */
+  --line: #2a3a5c; /* Hairline borders, dividers, table rules, the hex grid on maps. Decorative only (not for control borders). */
+  --line-strong: #5a6c92; /* Control borders (inputs, secondary buttons) and focus outlines' outer ring. 3:1 against surface. */
+  --ink: #eaf0fa; /* Primary text and icons on bg, surface and surface-raised. Also the logo's tower. */
+  --ink-muted: #9aa8c2; /* Secondary text: captions, labels, timestamps, axis labels. Never for key numbers. */
+  --beacon: #ffb020; /* THE brand colour (the watchtower's light). Primary buttons, the 'X' in the wordmark, key numbers, active states, agent suggestions. Use sparingly: one beacon element per view should win. */
+  --on-beacon: #0b1426; /* Text and icons placed on a beacon fill (primary buttons, beacon badges). */
+  --patrol: #2dd4bf; /* Patrol routes on the map, coverage, approved plans, success states. Routes are drawn as lines; risk as fills, so shape also separates them from beacon/risk. */
+  --alert: #f76a6e; /* Errors, failed actions, critical live alerts. Never decorative. */
+  --info: #6ea8fe; /* Links, neutral info notices, selected map zone outline. */
+  --risk-1: #ffb02029; /* Risk scale step 1 (very low). Map hex fill only, never text. */
+  --risk-2: #ffb02066; /* Risk scale step 2 (low). Map hex fill only. */
+  --risk-3: #ff9a1fb3; /* Risk scale step 3 (medium). Map hex fill only. */
+  --risk-4: #ff6b2c; /* Risk scale step 4 (high). Map hex fill, risk badges with on-beacon text. */
+  --risk-5: #f23d3d; /* Risk scale step 5 (critical). Map hex fill, critical badges with white text. */
+}
+[data-theme="day"] {
+  --bg: #f4f6fa;
+  --bg-deep: #e9edf4;
+  --surface: #ffffff;
+  --surface-raised: #eef2f8;
+  --line: #d5dce8;
+  --line-strong: #7a879f;
+  --ink: #0b1426;
+  --ink-muted: #4a5874;
+  --beacon: #9c5a00;
+  --on-beacon: #ffffff;
+  --patrol: #0b7a70;
+  --alert: #c21f26;
+  --info: #2563c9;
+  --risk-1: #ffb02033;
+  --risk-2: #ffb02073;
+  --risk-3: #ff9a1fbf;
+  --risk-4: #f25a1c;
+  --risk-5: #d92b2b;
+}
+:root {
+  --space-1: 4px; /* Icon-to-text gap, tight chips. */
+  --space-2: 8px; /* Gap inside controls and between related items. */
+  --space-3: 12px; /* Control padding, list row padding. */
+  --space-4: 16px; /* Card padding (dashboard), gap between cards. */
+  --space-6: 24px; /* Section gaps in the dashboard; card padding on slides. */
+  --space-8: 32px; /* Gaps between slide blocks. */
+  --space-12: 48px; /* Slide outer margins (sides and top). */
+  --radius-sm: 6px; /* Buttons, inputs, chips, badges. */
+  --radius-md: 10px; /* Cards, panels, map popovers. */
+  --radius-lg: 16px; /* Large slide cards, modals, the app shell. */
+  --stroke-hairline: 1px; /* Borders, dividers, hex grid lines. */
+  --stroke-icon: 1.5px; /* Outline icons (Tabler) and diagram connectors. */
+  --stroke-route: 3px; /* Patrol routes on the map. */
+  --opacity-beam: 0.28; /* The beacon light cone (logo beam, slide decorations). */
+  --opacity-hexgrid: 0.08; /* Background hexagon pattern on slides and empty map areas. */
+  --font-sans: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --text-display: 700 56px/68px var(--font-sans); /* Deck cover and section openers only. */
+  --text-h1: 700 36px/48px var(--font-sans); /* Slide titles, page titles. */
+  --text-h2: 600 26px/38px var(--font-sans); /* Section headings, card titles on slides. */
+  --text-h3: 600 20px/30px var(--font-sans); /* Card titles in the dashboard, sub-points on slides. */
+  --text-body: 400 16px/28px var(--font-sans); /* Default text. Arabic needs the generous line height. */
+  --text-small: 400 14px/24px var(--font-sans); /* Captions, table cells, secondary info. */
+  --text-label: 500 13px/20px var(--font-sans); /* Form labels, chips, map legends, axis titles. */
+  --text-metric: 600 40px/44px var(--font-sans); /* KPI numbers (response time, coverage %). Western digits, tabular. */
+  --text-code: 400 13px/20px var(--font-mono); /* Zone IDs, car IDs, timestamps in logs. */
+}
+.display {
+  font-family: var(--font-sans);
+  font-size: 56px;
+  line-height: 68px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.h1 {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.h2 {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  line-height: 38px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.h3 {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.small {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.metric {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+}

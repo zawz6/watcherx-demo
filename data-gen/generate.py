@@ -708,9 +708,9 @@ def content(c):
         k_after, _ = evaluate(new, risk_b, lv_b)
         parts = []
         if k_after["coverage_high_risk_pct"] - k_before["coverage_high_risk_pct"] >= 1:
-            parts.append(f"+{k_after['coverage_high_risk_pct'] - k_before['coverage_high_risk_pct']:.0f}% تغطية")
+            parts.append(f"\u2066+{k_after['coverage_high_risk_pct'] - k_before['coverage_high_risk_pct']:.0f}%\u2069 تغطية")
         if k_before["avg_response_min"] - k_after["avg_response_min"] >= 0.2:
-            parts.append(f"−{k_before['avg_response_min'] - k_after['avg_response_min']:.1f} دقيقة استجابة")
+            parts.append(f"\u2066−{k_before['avg_response_min'] - k_after['avg_response_min']:.1f}\u2069 دقيقة استجابة")
         parts.append(f"زمن الوصول المتوقع {eta} دقائق")
         k = int(n7[z]) + 1
         site = entries_t[ZID[z]]
@@ -894,7 +894,7 @@ def content(c):
     rising = json.load(open(OUT / "forecast_7d.json"))["rising_top5"][:2]
     t_tile = kpis["tiles"]
     d_inc = pctd(wk["incidents"]["total"], pw["incidents"]["total"])
-    sign = lambda v: f"+{v}%" if v > 0 else f"−{abs(v)}%"  # noqa: E731
+    sign = lambda v: "\u2066" + (f"+{v}%" if v > 0 else f"−{abs(v)}%") + "\u2069"  # noqa: E731
     brief = {
         "title_ar": "الملخص الأسبوعي — المدينة الصناعية الثانية بالرياض",
         "range_ar": R.range_ar(dt.date.fromisoformat(wk["start"]), dt.date.fromisoformat(wk["end"])),
@@ -905,7 +905,7 @@ def content(c):
             {"label_ar": "متوسط زمن الاستجابة (خطة WatcherX)", "value": wk["resp_watcherx"], "unit_ar": "دقيقة",
              "delta_ar": f"{sign(pctd(wk['resp_watcherx'], wk['resp_current']))} عن الخطة الحالية", "good": wk["resp_watcherx"] <= wk["resp_current"]},
             {"label_ar": "تغطية المناطق عالية الخطورة", "value": round(wk["coverage_watcherx"]), "unit_ar": "%",
-             "delta_ar": f"{wk['coverage_watcherx'] - wk['coverage_current']:+.0f} نقطة عن الخطة الحالية".replace("-", "−"), "good": True}],
+             "delta_ar": "\u2066" + f"{wk['coverage_watcherx'] - wk['coverage_current']:+.0f}".replace("-", "−") + "\u2069 نقطة عن الخطة الحالية", "good": True}],
         "intro_ar": f"هذا ملخص أسبوع {R.range_ar(dt.date.fromisoformat(wk['start']), dt.date.fromisoformat(wk['end']))}. "
                     f"الأرقام محسوبة على بيانات افتراضية لأغراض العرض.",
         "changed_ar": [
@@ -913,7 +913,7 @@ def content(c):
             f"أكثر الأنواع تكراراً: {R.TYPE_FULL[top_type]} ({wk['incidents'][top_type]} بلاغاً).",
             f"{'ارتفعت' if north_now > north_prev else 'انخفضت'} السرقات في المنطقة الشمالية من {north_prev} إلى {north_now} بلاغاً خلال 30 يوماً، "
             f"بعد إغلاق موقعين وتعطل الإنارة في {north_light} مناطق.",
-            "أكثر المناطق ارتفاعاً في توقعات الأسبوع القادم: " + "، ".join(f"{R.zone_label(r['id'])} (+{r['change_pct']}%)" for r in rising) + ".",
+            "أكثر المناطق ارتفاعاً في توقعات الأسبوع القادم: " + "، ".join(f"{R.zone_label(r['id'])} (\u2066+{r['change_pct']}%\u2069)" for r in rising) + ".",
         ],
         "worked_ar": [
             f"لو طُبّقت خطة WatcherX خلال الأسبوع لانخفض متوسط زمن الاستجابة من {wk['resp_current']} إلى {wk['resp_watcherx']} دقيقة "
